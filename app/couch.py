@@ -28,7 +28,7 @@ class DeleteDocuments(object):
                 self.logger.info('Skipping %s', doc["id"])
                 print('Skipping %s', doc["id"])
 
-        r = requests.post("http://admin:mysecretpassword@localhost:5984/{}/_bulk_docs".format(db),
+        r = requests.post("http://{}:{}@localhost:5984/{}/_bulk_docs".format(user, password, db),
                           json={"docs": todelete})
         print(r.status_code)
         self.logger.info('Final status code: %s', r.status_code)
